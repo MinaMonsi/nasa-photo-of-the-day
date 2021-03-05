@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
+import Header from "./Components/Header";
+import styled from "styled-components";
 
+const ParaDiv = styled.p`
+ text-align: center;
+ color: blue;
+ margin: 20px 50px;
+ `;
 
 function App() {
   const [data, setData] = useState([]);
@@ -16,11 +23,16 @@ function App() {
   }, []);
 
   return (
+
     <div className="App">
-      <h1>{data.title}</h1>
-      <h2>{data.date}</h2>
-      <img src={data.url}></img>
-      <p>{data.explanation}</p>
+      <Header/>
+      <h2>{data.title}</h2>
+      <h3>{data.date}</h3>
+      <img src={data.url} alt = "Nasa APOD"></img>
+      {/* <p>{data.explanation}</p> */}
+      <ParaDiv>
+       {data.explanation}
+      </ParaDiv>
       
     </div>
   );
