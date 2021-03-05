@@ -1,9 +1,10 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const WrapperDiv = styled.div`
 background-color: aqua;
 color: purple;
+padding: 15px;
 `;
 
 export default function Header (){

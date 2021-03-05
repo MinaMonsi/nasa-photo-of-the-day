@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
 import axios from "axios";
+import "./App.css";
 import Header from "./Components/Header";
+import Archive from "./Components/Archive";
+import Info from "./Components/Info";
 import styled from "styled-components";
 
-const ParaDiv = styled.p`
- text-align: center;
- color: blue;
- margin: 20px 50px;
- `;
+const TitleH2 = styled.h2`
+color: #7400B8;
+`;
+const DateH3 = styled.h3`
+color: #7400B8;
+`;
 
 function App() {
   const [data, setData] = useState([]);
@@ -23,16 +26,13 @@ function App() {
   }, []);
 
   return (
-
     <div className="App">
       <Header/>
-      <h2>{data.title}</h2>
-      <h3>{data.date}</h3>
+      <TitleH2>{data.title}</TitleH2>
+      <DateH3>{data.date}</DateH3>
       <img src={data.url} alt = "Nasa APOD"></img>
-      {/* <p>{data.explanation}</p> */}
-      <ParaDiv>
-       {data.explanation}
-      </ParaDiv>
+      <Info data={data}/>
+      <Archive/>
       
     </div>
   );
